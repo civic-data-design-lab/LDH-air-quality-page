@@ -249,8 +249,8 @@
 			     	}
 			     }
 
-			fetch('https://sheets.googleapis.com/v4/spreadsheets/10O8kBIqzQex1iGm8KQcpJ-NmI6-tmduwB-vSg2ty8w8/values/A2:J?key=AIzaSyBprW4Fs6iOnaNO6WQt2DMQw7hda8_PhnI').then(response => response.json()).then(res => {
-				console.log(res);
+			fetch('https://sheets.googleapis.com/v4/spreadsheets/1EG53Isa_H-kZoxy8E2-8sUKl2GnXlJBah-I8jc2RPaI/values/A2:J?key=AIzaSyBprW4Fs6iOnaNO6WQt2DMQw7hda8_PhnI').then(response => response.json()).then(res => {
+				console.log("VALUES:");
 				console.log(res['values'][0]);
 
 				var labels = []
@@ -268,8 +268,9 @@
 				var dateOffset = (24*60*60*1000) * 1 / 24 * 3; // 3 hour in ms
 				var oldestDate = new Date();
 				oldestDate.setTime(last_day.getTime() - dateOffset);
-				console.log(oldestDate.toISOString());
+				console.log("CUTTING OFF TIMES BEFORE: ");
 				console.log(last_day.toISOString());
+				console.log(last_day.toLocaleTimeString());
 
 				vals = vals.filter(row => new Date(row[0]).getTime() > oldestDate.getTime());
 
@@ -284,14 +285,13 @@
 				for (var i = 0; i < data_vals.length; i++) {
 					total += parseFloat(data_vals[i]);
 				}
-				console.log(total);
 				var avg = total / data_vals.length;
-				console.log(avg);
 
 				var AQI = aqiFromPM(avg);
 				var AQIDescription = getAQIDescription(AQI); //A short description of the provided AQI
 				var AQIMessage = getAQIMessage(AQI); // What the provided AQI means (a longer description)
 
+				console.log("AQI: ");
 				console.log(AQI);
 				console.log(AQIDescription);
 				console.log(AQIMessage);
@@ -305,13 +305,7 @@
 
 				var new_opacity = getAQIOpacity(AQI);
 
-				// console.log('new opacity ' + new_opacity);
-
 				document.getElementById("haze").style = "position:absolute; top:0; left:25%; border-radius:5px; opacity:" + new_opacity
-
-				// labels.forEach(function (label, i) {
-				// if (i % 20 != 0) labels[i] = '';// show empty string
-				// });
 
 				const down = (ctx, value) => (ctx.p0.parsed.y > 12 | ctx.p1.parsed.y > 12) ? value : undefined;
 
@@ -401,9 +395,7 @@
 
 			function rightClick() {
 				var page_num = localStorage.getItem('page_num');
-				console.log('GOT', page_num)
 				page_num = Math.min(+page_num + 1, 4);
-				console.log('SETTING', page_num);
 				localStorage.setItem('page_num', page_num);
 				updatePageDisplay(page_num);
 			}
@@ -411,7 +403,6 @@
 			function leftClick() {
 				var page_num = localStorage.getItem('page_num');
 				page_num = Math.max(+page_num - 1, 1);
-				console.log(page_num);
 				localStorage.setItem('page_num', page_num);
 				updatePageDisplay(page_num);
 			}
