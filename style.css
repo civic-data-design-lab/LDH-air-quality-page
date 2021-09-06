@@ -1,0 +1,69 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 30px;
+  text-align: center;
+  /*margin-top: 125px;*/
+  padding-bottom: 50px;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+/*		  width: 50%;
+*/		}
+
+.arrow {
+	width: auto;
+	height: 7.5%;
+	display: inline-block;
+	top: 45%;
+	position: fixed;
+	opacity: 0.2;
+	z-index: 999
+}
+
+.arrow:hover {
+	display: inline-block;
+	top: 45%;
+	position: fixed;
+	opacity: 1;
+	z-index: 999;
+	cursor: pointer;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica;
+	font-weight: 300;
+}
+
+
+h4 {
+	font-size: 32px;
+	font-size: 2vw;
+}
+
+p {
+	font-size: 64px;
+	font-size: 4vw;
+}
+
+.block {
+	height: 30px;
+	width: 100%;
+}
+
+.background {
+	opacity: 0;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
