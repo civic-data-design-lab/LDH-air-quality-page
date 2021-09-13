@@ -34,6 +34,10 @@ function rightClick() {
 
 function leftClick() {
 	var page_num = localStorage.getItem('page_num');
+
+	if (page_num == 1){
+		window.location.href='https://civic-data-design-lab.github.io/LDH-Landing-Page/';
+	}
 	page_num = Math.max(+page_num - 1, 1);
 	localStorage.setItem('page_num', page_num);
 	updatePageDisplay(page_num);
