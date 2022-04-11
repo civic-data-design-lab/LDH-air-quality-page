@@ -70,8 +70,6 @@
 
 				var new_opacity = getAQIOpacity(AQI);
 
-				document.getElementById("haze").style = "position:absolute; top:0; left:25%; border-radius:5px; opacity:" + new_opacity
-
 				const down = (ctx, value) => (ctx.p0.parsed.y > 12 | ctx.p1.parsed.y > 12) ? value : undefined;
 
 				const data = {
@@ -148,32 +146,14 @@
 				<img class="background"src="assets/discrete_meter_labelled.png" width="50%" height="auto">
 			  </div>
 
-
-		</div>
-			<div class="block"></div>
-		</div>
-
-		<div id="recommendation">
-			<div class="card">
-			  <div class="container">
-			  	<h4><b>Daily Recommendation</b></h4>
-			  </div>
-
-
-
-			  <div class="container" style="position:relative" margin-left="100px" margin-right="100px">
-				<img id="cityscape" src="assets/community.png" width="50%" height="auto" style="position:absolute; top:0; left:25%;">
-				<img id='haze' src="assets/haze.png" width="50%" height="auto" style="position:absolute; top:0; left:25%; border-radius:5px">
-				<img class="background"src="assets/community.png" width="50%" height="auto">
-			  </div>
-
 			  <div class="container">
 			  	<div class="block"> </div>
 			  	<p id="advisory">  </p>
 			  </div>
 
-			</div>
 
+			</div>
+			<div class="block"></div>
 		</div>
 
 		<div  id="graph">

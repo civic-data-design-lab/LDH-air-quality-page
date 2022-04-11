@@ -7,7 +7,7 @@ function init() {
 }
 
 function updatePageDisplay(page_num) {
-	const cards = ['today', 'recommendation', 'graph', 'info']
+	const cards = ['today', 'graph', 'info']
 	cards.forEach(element => document.getElementById(element).style.display="none")
 	switch (page_num) {
 		case 1:
@@ -19,15 +19,12 @@ function updatePageDisplay(page_num) {
 		case 3:
 			document.getElementById(cards[2]).style.display="initial";
 			break;
-		case 4:
-			document.getElementById(cards[3]).style.display="initial";
-			break;
 	}
 }
 
 function rightClick() {
 	var page_num = localStorage.getItem('page_num');
-	page_num = Math.min(+page_num + 1, 4);
+	page_num = Math.min(+page_num + 1, 3);
 	localStorage.setItem('page_num', page_num);
 	updatePageDisplay(page_num);
 }
